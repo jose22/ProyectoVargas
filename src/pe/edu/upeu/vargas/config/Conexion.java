@@ -17,21 +17,20 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     private static Connection conex = null;
-    private static String url = "jbdc:mysql://localhost/bd_visitas";
-    private static String usuario = "root";
-    private static String clave ="root";
+    private static final String url = "jdbc:mysql://localhost/bd_visitas";
+    private static final String usuario = "root";
+    private static final String clave ="root";
     
     public static Connection getConex(){
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-             conex = DriverManager.getConnection(url, usuario,clave);
-            }catch (ClassNotFoundException | SQLException e){
-                    JOptionPane.showMessageDialog(null , e);
-            
-            }
+            conex = DriverManager.getConnection(url, usuario, clave);
+        } catch (Exception e) {
+        }
+        
             return conex;
     }
-    }
+ }
 
 
     
